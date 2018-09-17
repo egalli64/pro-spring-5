@@ -1,12 +1,12 @@
 ext {
 	//spring libs
-	springVersion = '5.0.4.BUILD-SNAPSHOT'
-	bootVersion = '2.0.0.RC1'
+	springVersion = '5.0.9.RELEASE'
+	bootVersion = '2.0.5.RELEASE'
 	springDataVersion = '2.0.2.RELEASE'
-	springAmqpVersion = '2.0.3.BUILD-SNAPSHOT'
-	springSecurityVersion = '5.0.2.BUILD-SNAPSHOT'
+	springAmqpVersion = '2.0.3.RELEASE'
+	springSecurityVersion = '5.0.6.RELEASE'
 	springBatchVersion = '4.0.0.RELEASE'
-	springIntegrationVersion = '5.0.2.BUILD-SNAPSHOT'
+	springIntegrationVersion = '5.0.4.RELEASE'
 
 	//logging libs
 	slf4jVersion = '1.7.25'
@@ -161,7 +161,7 @@ ext {
 	]
 
 	react = [
-			projReactorIpc: "io.projectreactor.ipc:reactor-netty:0.7.0.M1",
+			projReactorIpc: "io.projectreactor.ipc:reactor-netty:0.7.9.RELEASE",
 			tomcatEmbedded: "org.apache.tomcat.embed:tomcat-embed-core:9.0.0.M25",
 	]
 
