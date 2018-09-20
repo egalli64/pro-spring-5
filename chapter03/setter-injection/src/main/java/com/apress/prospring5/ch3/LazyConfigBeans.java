@@ -8,14 +8,19 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  */
 public class LazyConfigBeans {
 
-	public static void main(String... args) {
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-		ctx.load("classpath:spring/app-context-lazy-xml.xml");
-		ctx.refresh();
-		MessageRenderer messageRenderer = ctx.getBean("renderer",
-				MessageRenderer.class);
-		messageRenderer.render();
-		ctx.close();
-	}
+    public static void main(String... args) {
+        /**
+         * Using try-with-resource
+         * 
+         * @author manny
+         * @see http://thisthread.blogspot.com/2018/09/how-to-close-spring-applicationcontext.html
+         */
+        try (GenericXmlApplicationContext ctx = new GenericXmlApplicationContext()) {
+            ctx.load("classpath:spring/app-context-lazy-xml.xml");
+            ctx.refresh();
+            MessageRenderer messageRenderer = ctx.getBean("renderer", MessageRenderer.class);
+            messageRenderer.render();
+        }
+    }
 
 }

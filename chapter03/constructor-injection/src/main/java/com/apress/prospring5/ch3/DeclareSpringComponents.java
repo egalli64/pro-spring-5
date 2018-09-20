@@ -5,15 +5,18 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class DeclareSpringComponents {
     public static void main(String... args) {
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:spring/app-context-annotation.xml");
-        ctx.refresh();
+        /**
+         * Using try-with-resource
+         * 
+         * @author manny
+         * @see http://thisthread.blogspot.com/2018/09/how-to-close-spring-applicationcontext.html
+         */
+        try (GenericXmlApplicationContext ctx = new GenericXmlApplicationContext()) {
+            ctx.load("classpath:spring/app-context-annotation.xml");
+            ctx.refresh();
 
-        MessageProvider messageProvider = ctx.getBean("provider",
-            MessageProvider.class);
-
-        System.out.println(messageProvider.getMessage());
-        ctx.close();
-
+            MessageProvider messageProvider = ctx.getBean("provider", MessageProvider.class);
+            System.out.println(messageProvider.getMessage());
+        }
     }
 }

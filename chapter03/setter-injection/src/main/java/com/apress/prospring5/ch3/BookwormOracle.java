@@ -9,7 +9,10 @@ public class BookwormOracle implements Oracle {
 
     @Override
     public String defineMeaningOfLife() {
+        if (encyclopedia == null) {
+            System.out.println("There's no encyclopedia!");
+        }
+
         return "Encyclopedias are a waste of money -  go see the world instead";
     }
 }
-
